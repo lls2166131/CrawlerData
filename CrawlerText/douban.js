@@ -1,5 +1,3 @@
-// 这一行是套路, 给 node.js 用的
-// 如果没有这一行, 就没办法使用一些 let const 这样的特性
 "use strict"
 
 //http请求操作、request 用于下载网页
@@ -31,7 +29,6 @@ const movieFromDiv = function(div) {
     // 使用 cheerio.load 函数来返回一个可以查询的特殊对象
     const e = cheerio.load(div)
 
-    // 使用 querySelector 语法来获取信息了
     // .text() 获取文本信息
     movie.name = e('.title').text()
     movie.score = e('.rating_num').text()
@@ -39,7 +36,6 @@ const movieFromDiv = function(div) {
 
     const pic = e('.pic')
     movie.ranking = pic.find('em').text()
-    // 元素的属性用 .attr('属性名') 确定
     movie.coverUrl = pic.find('img').attr('src')
 
     return movie
@@ -87,7 +83,6 @@ const moviesFromUrl = function(url) {
     })
 }
 
-
 const __main = function() {
     // 主函数
     // 下载网页, 解析出电影信息, 保存到文件
@@ -95,6 +90,4 @@ const __main = function() {
     moviesFromUrl(url)
 }
 
-
-// 程序开始的主函数
 __main()

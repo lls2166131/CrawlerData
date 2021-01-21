@@ -1,5 +1,3 @@
-// 这一行是套路, 给 node.js 用的
-// 如果没有这一行, 就没办法使用一些 let const 这样的特性
 "use strict"
 
 // request 用于下载网页
@@ -30,7 +28,6 @@ const answerFromDiv = function(div) {
         decodeEntities: false,
     }
     const e = cheerio.load(div, options)
-    // 使用 querySelector 语法来获取信息了
     // .text() 获取文本信息
     a.author = e('.author-link-line > .author-link').text()
     // 如果用 text() 则会获取不到回车
@@ -154,6 +151,4 @@ const __main = function() {
     // })
 }
 
-
-// 程序开始的主函数
 __main()
